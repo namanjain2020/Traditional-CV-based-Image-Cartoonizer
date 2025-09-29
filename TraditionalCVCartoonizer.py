@@ -31,7 +31,6 @@ def sobel_edges(img_gray, thresh=100):
     return edge
 
 def kmeans_quantize(img, k=8, max_iter=10):
-    """Scratch K-means color quantization"""
     data = img.reshape((-1, 3)).astype(np.float32)
     # Randomly pick centers
     centers = data[np.random.choice(len(data), k, replace=False)]
@@ -48,7 +47,6 @@ def kmeans_quantize(img, k=8, max_iter=10):
     return quantized
 
 def boost_saturation_contrast(img, sat_mult=1.3, val_mult=1.2):
-    
     img = img.astype(np.float32) / 255.0
     maxc = img.max(axis=2)
     minc = img.min(axis=2)
